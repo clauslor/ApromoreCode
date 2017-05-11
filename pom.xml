@@ -126,6 +126,7 @@
         <module>Activity-Filter-Portal-Plugin</module>
         <module>Infrequent-Behaviour-Filter-Logic</module>
         <module>Infrequent-Behaviour-Filter-Portal-Plugin</module>
+        <module>Kafka-Portal-Plugin</module>
         <module>Log-Animation-Logic</module>
         <module>Log-Animation-Portal-Plugin</module>
         <module>Log-Visualizer-Logic</module>
@@ -170,6 +171,7 @@
         <!-- Assembles the Bundles and repositories -->
         <module>Apromore-Assembly/Editor-Assembly</module>
         <module>Apromore-Assembly/Filestore-Assembly</module>
+        <module>Apromore-Assembly/Kafka-Assembly</module>
         <module>Apromore-Assembly/Manager-Assembly</module>
         <module>Apromore-Assembly/Portal-Assembly</module>
         <module>Apromore-Assembly/PQL-Indexer-Assembly</module>
