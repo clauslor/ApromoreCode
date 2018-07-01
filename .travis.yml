@@ -1,3 +1,39 @@
+
+sudo: false 
+
 language: java
- - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
- - mvn clean install
+# Set display to execute UI tests on
+
+jdk: oraclejdk8
+
+env: 
+  global:
+   - MAVEN_DIR=apache-maven-3.5.2
+
+
+# Install recent maven version since we need polyglot support
+# which was introduced in maven 3.3
+before_install:
+ # Only download maven if it wasn't cached
+ - export M2_HOME=$HOME/${MAVEN_DIR}
+ - |
+   if [ ! -d $HOME/${MAVEN_DIR}/bin ]; 
+   then
+    pushd ~
+    wget http://apache.lauf-forum.at/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+    tar xvf ${MAVEN_DIR}-bin.tar.gz
+    popd
+   fi
+ - export PATH=$M2_HOME/bin:$PATH
+
+script:
+  - $HOME/${MAVEN_DIR}/bin/mvn clean verify
+
+notifications:
+  email: false
+
+cache:  
+  directories:  
+   - $HOME/.m2 
+   - $HOME/.p2
+- $HOME/${MAVEN_DIR}
